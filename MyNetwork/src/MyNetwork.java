@@ -30,6 +30,7 @@ public class MyNetwork
 			{
 				System.out.println(line);
 		        String[] values = line.split(",");
+		        
 				System.out.println(Arrays.toString(values));
 
 		        int i = 0, j;
@@ -46,13 +47,20 @@ public class MyNetwork
 		        i = i + Integer.parseInt(values[i]) + 1;
 
 		        System.out.println(values[i]);
+		        
 		        //Set number of requests and list of pending requests.
 		        Network[noOfPersons].setRequests(Integer.parseInt(values[i]));
-		        
 		        for(j = 1; j < Integer.parseInt(values[i]); j++)
 		        {
-		        	Network[noOfPersons].setlistOffriends(values[i+j], j-1);
+		        	Network[noOfPersons].setlistOfrequests(values[i+j], j-1);
 		        }
+		        i = i + Integer.parseInt(values[i]) + 1;
+		        
+		        //Set status
+		        Network[noOfPersons].setStatus(values[i]);
+		        
+		        //Next person
+		        noOfPersons++;
 			}
 		}
 		
@@ -100,10 +108,8 @@ public class MyNetwork
 		System.out.println("Enter Password: ");
 		password = in.next();
 		
-		Person newUser = new Person(username, password, display_name);
-		
-		
-		
+		Network[noOfPersons] = new Person(username, password, display_name);
+		noOfPersons++;
 		
 		in.close();
 	}

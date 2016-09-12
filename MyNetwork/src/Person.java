@@ -52,6 +52,22 @@ public class Person
 	{
 		listOfrequests[i] = new String();
 		listOfrequests[i] = requestsUsername;
-	}	
+	}
+	
+	public void setStatus(String status)
+	{
+		this.status = status;
+	}
+	
+	public String getStatus()
+	{
+		return status;
+	}
+	
+	public String toString()
+	{
+		return username +","+ password +","+ display_name +","+ friends +","+ listOffriends +","+ requests +","+ listOfrequests +","+ status;
+	}
+	
 	
 }
