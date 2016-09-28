@@ -1,0 +1,53 @@
+/**
+ * @author Gurek 2015033
+ */
+
+public class Complex2
+{
+	private Object real;
+	private Object img;
+	
+	Complex2(Object real, Object img)
+	{
+		this.real=real;
+		this.img=img;
+	}
+	
+	public String toString()
+	{
+		if(real instanceof double)
+		{
+			
+		}
+	}
+	
+	public Complex2 add(Complex2 a, Complex2 b)
+	{
+		Complex1 sum = new Complex1(a.real+b.real, a.img+b.img);
+		return sum;
+	}
+	
+	public Complex1 subtract(Complex1 a, Complex1 b)
+	{
+		Complex1 diff = new Complex1(a.real-b.real, a.img-b.img);
+		return diff;
+	}
+	
+	public Complex1 multiply(Complex1 a, Complex1 b)
+	{
+		Complex1 product = new Complex1(a.real*b.real-a.img*b.img, a.img*b.real+a.real*b.img);
+		return product;
+	}
+	
+	public Complex1 conjugate()
+	{
+		Complex1 conj = new Complex1(real, -1*img);
+		return conj;
+	}
+	
+	public float absolute()
+	{
+		float val = (float)Math.sqrt(real*real + img*img);
+		return val;
+	}
+}

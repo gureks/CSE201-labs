@@ -1,0 +1,13 @@
+/**
+ * @author Gurek 2015033
+ */
+
+public class main
+{
+	public static void main(String[] args)
+	{
+		ComplexDemo demo = new ComplexDemo();
+		demo.Complex1Demo();
+	}
+
+}

@@ -1,0 +1,19 @@
+/**
+ * @author Gurek 2015033
+ */
+
+import java.util.*;
+
+public class ComplexDemo
+{
+	public void Complex1Demo()
+	{
+		
+	}
+	
+	public static void main(String[] args)
+	{
+		
+	}
+
+}

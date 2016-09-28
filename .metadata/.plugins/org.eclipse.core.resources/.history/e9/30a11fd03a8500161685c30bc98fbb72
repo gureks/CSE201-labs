@@ -1,0 +1,13 @@
+/**
+ * @author Gurek 2015033
+ */
+
+import java.util.*;
+
+public class ComplexDemo {
+
+	public static void main(String[] args) {
+
+	}
+
+}

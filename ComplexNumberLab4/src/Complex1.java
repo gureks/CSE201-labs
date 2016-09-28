@@ -23,31 +23,26 @@ public class Complex1
 	
 	public Complex1 add(Complex1 a, Complex1 b)
 	{
-		Complex1 sum = new Complex1(a.real+b.real, a.img+b.img);
-		return sum;
+		return new Complex1(a.real+b.real, a.img+b.img);
 	}
 	
 	public Complex1 subtract(Complex1 a, Complex1 b)
 	{
-		Complex1 diff = new Complex1(a.real-b.real, a.img-b.img);
-		return diff;
+		return new Complex1(a.real-b.real, a.img-b.img);
 	}
 	
 	public Complex1 multiply(Complex1 a, Complex1 b)
 	{
-		Complex1 product = new Complex1(a.real*b.real-a.img*b.img, a.img*b.real+a.real*b.img);
-		return product;
+		return new Complex1(a.real*b.real-a.img*b.img, a.img*b.real+a.real*b.img);
 	}
 	
 	public Complex1 conjugate()
 	{
-		Complex1 conj = new Complex1(real, -1*img);
-		return conj;
+		return new Complex1(real, -1*img);
 	}
 	
-	public float absolute()
+	public double absolute()
 	{
-		float val = (float)Math.sqrt(real*real + img*img);
-		return val;
+		return Math.hypot(real,img);
 	}
 }

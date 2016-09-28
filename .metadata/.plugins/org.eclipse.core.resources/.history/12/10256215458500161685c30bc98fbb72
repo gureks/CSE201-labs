@@ -1,0 +1,81 @@
+/**
+ * @author Gurek 2015033
+ */
+
+public class Complex2
+{
+	private double real;
+	private double img;
+	
+	Complex2(double real, double img)
+	{
+		this.real=real;
+		this.img=img;
+	}
+	
+	public String toString()
+	{
+		if (img >= 0)
+			return "" + real + "+" + img + "i";
+		else 
+			return "" + real + img + "i";
+	}
+	
+	public Complex2 add(Complex2 a, Complex2 b)
+	{
+		Complex2 sum = new Complex2(a.real+b.real, a.img+b.img);
+		return sum;
+	}
+	
+	public Complex2 subtract(Complex2 a, Complex2 b)
+	{
+		Complex2 diff = new Complex2(a.real-b.real, a.img-b.img);
+		return diff;
+	}
+	
+	public Complex2 multiply(Complex2 a, Complex2 b)
+	{
+		if((a.real instanceof Double) || (b.real instanceof Double) 
+				|| (a.img instanceof Double) || (b.img instanceof Double))
+		{
+			Complex2 product = new Complex2((double)a.real*(double)b.real-(double)a.img*(double)b.img, (double)a.img*(double)b.real+(double)a.real*(double)b.img);
+			return product;
+		}
+		else if((a.real instanceof Float) || (b.real instanceof Float) 
+				|| (a.img instanceof Float) || (b.img instanceof Float))
+		{
+			Complex2 product = new Complex2((float)a.real*(float)b.real-(float)a.img*(float)b.img, (float)a.img*(float)b.real+(float)a.real*(float)b.img);
+			return product;
+		}
+		else
+		{
+			Complex2 product = new Complex2((int)a.real*(int)b.real-(int)a.img*(int)b.img, (int)a.img*(int)b.real+(int)a.real*(int)b.img);
+			return product;
+		}
+	}
+	
+	public Complex2 conjugate()
+	{
+		if((real instanceof Double) || (img instanceof Double))
+		{
+			Complex2 conj = new Complex2((double)real, -1*(double)img);
+			return conj;
+		}
+		else if((real instanceof Float) || (img instanceof Float))
+		{
+			Complex2 conj = new Complex2((float)real, -1*(float)img);
+			return conj;
+		}
+		else
+		{
+			Complex2 conj = new Complex2((int)real, -1*(int)img);
+			return conj;
+		}
+	}
+	
+	public double absolute()
+	{
+		double val = Math.sqrt((Double)real*(Double)real + (Double)img*(Double)img);
+		return val;
+	}
+}
