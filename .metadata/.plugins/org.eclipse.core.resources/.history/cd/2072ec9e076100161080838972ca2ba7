@@ -1,0 +1,16 @@
+/**
+ * @author Gurek 2015033
+ *		   Abhishek 2015
+ */
+
+import java.utils.*;
+
+public class Board {
+	char[][] arr[][];
+	
+	Board()
+	{
+		arr = new char[3][3];
+		
+	}
+}

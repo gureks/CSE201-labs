@@ -1,0 +1,23 @@
+/**
+ * @author Gurek 2015033
+ */
+
+public class Complex1
+{
+	private int real;
+	private int img;
+	
+	Complex1(int real, int img)
+	{
+		this.real=real;
+		this.img=img;
+	}
+	
+	public String toString()
+	{
+		if (img >= 0)
+			return "" + real + "+" + img + "i";
+		else 
+			return "" + real + img + "i";
+	}
+}

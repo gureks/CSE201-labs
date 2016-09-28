@@ -1,0 +1,155 @@
+/**
+ * @author Gurek Singh 2015033
+ * @author Abhishek Chauhan 2015005	
+ */
+
+import java.util.*;
+
+public class Person 
+{
+	private String username;
+	private String password;
+	private String display_name;
+	private int friends, requests;
+	private String status;
+	private ArrayList<String> listOffriends, listOfrequests;
+	
+	public Person(String username, String password, String display_name)
+	{
+		this.username = username;
+		this.password = password;
+		this.display_name = display_name; 
+		friends = 0;
+		requests = 0;
+		status = "";
+		listOffriends = new ArrayList<String>();
+		listOfrequests = new ArrayList<String>();
+	}
+	
+	public void setFriends(int friends)
+	{
+		this.friends = friends;
+	}
+	
+	public int getFriends()
+	{
+		return friends;
+	}
+	
+	public void setlistOffriends(String friendUsername)
+	{
+		listOffriends.add(friendUsername);
+	}
+	
+	public String getlistOffriends()
+	{
+		String lof = new String();
+		lof = "";
+		for(String a:listOffriends)
+		{
+			lof = lof + a + ",";
+		}
+		return lof;
+	}
+	
+	public void setRequests(int requests)
+	{
+		this.requests = requests;
+	}
+	
+	public int getRequests()
+	{
+		return requests;
+	}
+	
+	public void setlistOfrequests(String requestsUsername)
+	{
+		listOfrequests.add(requestsUsername);
+	}
+	
+	public String getlistOfrequests()
+	{
+		String lor = new String();
+		lor = "";
+		for(String a:listOfrequests)
+		{
+			lor = lor + a + ",";
+		}
+		return lor;
+	}
+	
+	public void setStatus(String status)
+	{
+		this.status = status;
+		System.out.println("Status updated.");
+	}
+	
+	public String getStatus()
+	{
+		return status;
+	}
+	
+	public String getUsername()
+	{
+		return username;
+	}
+	
+	public String getPassword()
+	{
+		return password;
+	}
+	
+	public void updateStatus()
+	{
+		Scanner in = new Scanner(System.in);
+		String status = new String();
+		
+		status = in.next();
+		
+		setStatus(status);
+		System.out.println("Status updated.");
+	}
+	
+	public void pendingRequests()
+	{
+		Scanner in = new Scanner(System.in);
+		Iterator i = listOfrequests.iterator();
+		int j = 1;
+		char choice;
+		while(i.hasNext())
+		{  
+			String temp = (String)i.next();
+			System.out.println(j + ".	" + temp);
+		}
+		
+		choice = (char)in.next();
+		
+		i = listOfrequests.iterator();
+		while(i.hasNext())
+		{
+			j++;
+			String temp = (String)i.next();
+			if(j==choice)
+			{
+				System.out.println(temp);
+				System.out.println("1.	Accept");
+				System.out.println("2.	Reject");
+				
+			}
+		}
+		
+	}
+	
+	public String toString()
+	{
+		String lof = new String();
+		lof = getlistOffriends();
+		
+		String lor = new String();
+		lor = getlistOfrequests();
+		
+		return username +","+ password +","+ display_name +","+ friends +","+ lof + requests +","+ lor + status;
+	}
+	
+	
+}

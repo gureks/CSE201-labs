@@ -1,0 +1,8 @@
+/**
+ * @author Gurek 2015033
+ *		   Abhishek 2015
+ */
+public class Board {
+	char[][] arr[][];
+	
+}

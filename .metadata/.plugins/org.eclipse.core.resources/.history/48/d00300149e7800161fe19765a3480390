@@ -1,0 +1,30 @@
+/**
+ * @author Gurek Singh 2015033
+ * @author Abhishek Chauhan 2015005
+ *	
+ */
+public class Person 
+{
+	private String username;
+	private String password;
+	private String display_name;
+	private int friends, requests;
+	private String status;
+	private String[] listOffriends, listOfrequests;
+	
+	public Person(String username, String password, String display_name)
+	{
+		this.username = username;
+		this.password = password;
+		this.display_name = display_name; 
+		friends = 0;
+		requests = 0;
+		status = "";
+	}
+	
+	public setFriends(int friends)
+	{
+		this.friends = friends;
+	}
+	
+}

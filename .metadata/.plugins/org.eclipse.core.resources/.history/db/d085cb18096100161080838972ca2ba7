@@ -1,0 +1,63 @@
+/**
+ * @author Gurek 2015033
+ *		   Abhishek 2015
+ */
+
+import java.util.Scanner;
+
+public class Board
+{
+	private static char[][] arr;
+	
+	Board()
+	{
+		arr = new char[3][3];
+		for(int i=0;i<3;i++)
+		{
+			for(int j=0;j<3;j++)
+			{
+				arr[i][j]='-';
+			}
+		}
+		
+	}
+	
+	public void put(int x, int y, char val)
+	{
+		if(arr[x][y]=='-')
+		{
+			arr[x][y]=val;
+		}
+		else
+		{
+			System.out.println("Invalid coordinates. Enter coordinates again: ");
+			Scanner in = new Scanner(System.in);
+			x = in.nextInt();
+			y = in.nextInt();
+			put(x,y,val);
+		}
+	}
+	
+	//TO DO THIS
+	public char[][] get()
+	{
+		return arr;
+	}
+	
+	public void print()
+	{
+		for(int i=0;i<3;i++)
+		{
+			for(int j=0;j<3;j++)
+			{
+				System.out.printf("%c",arr[i][j]);
+			}
+			System.out.println("");
+		}
+	}
+	
+	public void checkState()
+	{
+		
+	}
+}

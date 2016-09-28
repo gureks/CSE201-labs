@@ -1,0 +1,154 @@
+/**
+ * @author Gurek Singh 2015033
+ * @author Abhishek Chauhan 2015005
+ */
+
+import java.util.*;
+import java.io.*;
+
+public class MyNetwork 
+{
+	ArrayList<Person> Network = new ArrayList<Person>();
+	int noOfPersons;
+	
+	public MyNetwork()
+	{
+		noOfPersons = 0;
+	}
+	
+	public void readFile()
+	{
+		BufferedReader br = null;
+		
+		System.out.println("Reading Database...");
+		try 
+		{
+			br = new BufferedReader(new FileReader("input.txt"));
+			String line = null;
+			
+			while ((line = br.readLine()) != null) 
+			{
+				//System.out.println(line);
+		        String[] values = line.split(",");
+		        
+		        int i = 0, j;
+		        //Set username, password, display name.
+		        Person temp = new Person(values[i],values[i+1],values[i+2]);
+		        i+=3;
+		        
+		        //Set number of friends and list of friends.
+		        temp.setFriends(Integer.parseInt(values[i]));
+		        for(j = 1; j <= Integer.parseInt(values[i]); j++)
+		        {
+		        	temp.setlistOffriends(values[i+j]);
+		        }
+		        i = i + Integer.parseInt(values[i]) + 1;
+		        
+		        //Set number of requests and list of pending requests.
+		        temp.setRequests(Integer.parseInt(values[i]));
+		        for(j = 1; j < Integer.parseInt(values[i]); j++)
+		        {
+		        	temp.setlistOfrequests(values[i+j]);
+		        }
+		        i = i + Integer.parseInt(values[i]) + 1;
+		        
+		        //Set status
+		        temp.setStatus(values[i]);
+		        
+		        //Add to ArrayList
+		        Network.add(temp);
+		        
+		        //System.out.println(temp);
+			}
+		}
+		
+		catch (FileNotFoundException ex)
+		{
+			System.out.println("File not found");
+			ex.printStackTrace();
+		}
+		
+		catch (IOException ex)
+		{
+			ex.printStackTrace();
+		}
+		
+		finally
+		{
+			try 
+			{
+				if (br != null)
+				{	
+					br.close();
+				}
+			}
+				
+			catch (IOException ex) 
+			{
+				ex.printStackTrace();
+			}
+		}
+	
+		
+	}
+	
+	public void signup()
+	{
+		String username, password, display_name;
+		Scanner in = new Scanner(System.in);
+		
+		System.out.println("Enter Username: ");
+		username = in.next();
+
+		System.out.println("Enter Display name: ");
+		display_name = in.next();
+		
+		System.out.println("Enter Password: ");
+		password = in.next();
+		
+		Person temp = new Person(username, password, display_name);
+		Network.add(temp);
+		noOfPersons++;
+		
+		in.close();
+	}
+	
+	public void login()
+	{
+		//doSomething();
+	}
+	
+	public void mainMenu()
+	{
+		int choice;
+		Scanner in = new Scanner(System.in);
+		
+		System.out.println("1.	Signup");
+		System.out.println("2.	Login");
+		System.out.println("Enter choice:  ");
+		choice = in.nextInt();
+		
+		switch(choice)
+		{
+			case 1	: 	signup();
+						break;
+			case 2	:	login();
+						break;
+			case 0	:	System.exit(0);
+						break;
+			default	:	System.out.println("Wrong input. Enter again");
+						mainMenu();
+						break;
+		}
+		
+	}
+	
+	public static void main(String[] args) 
+	{
+		MyNetwork MySocialNetwork = new MyNetwork();
+		MySocialNetwork.readFile();
+		System.out.println("Network is ready.");
+		
+		MySocialNetwork.mainMenu();
+	}
+}

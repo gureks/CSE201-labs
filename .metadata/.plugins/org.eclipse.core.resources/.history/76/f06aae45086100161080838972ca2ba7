@@ -1,0 +1,39 @@
+/**
+ * @author Gurek 2015033
+ *		   Abhishek 2015
+ */
+
+import java.utils.*;
+
+public class Board
+{
+	private static char[][] arr;
+	
+	Board()
+	{
+		arr = new char[3][3];
+		for(int i=0;i<3;i++)
+		{
+			for(int j=0;j<3;j++)
+			{
+				arr[i][j]='-';
+			}
+		}
+		
+	}
+	
+	public void put(int x, int y, char val)
+	{
+		if(arr[x][y]=='-')
+		{
+			arr[x][y]=val;
+		}
+		else
+		{
+			System.out.println("Invalid coordinates. Enter coordinates again: ");
+			Scanner in = new Scanner(System.in);
+			
+		}
+	}
+	
+}

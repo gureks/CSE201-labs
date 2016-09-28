@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+
+/**
+ * @author Gurek-PC
+ *
+ */
+public class Main 
+{
+	public static void main(String[] args)
+	{
+		MyNetwork MySocialNetwork = new MyNetwork();
+		MySocialNetwork.readFile();
+		System.out.println("Network is ready.");
+		
+		MySocialNetwork.mainMenu();
+	}
+}
