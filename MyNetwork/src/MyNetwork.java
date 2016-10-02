@@ -289,7 +289,7 @@ public class MyNetwork
 			}
 			else if (flag == 0)
 			{
-				throw new UserNotFoundException(username);
+				throw new UserNotFoundException(searchUsername);
 			}
 		}
 		catch(UserNotFoundException exp)

@@ -1,0 +1,13 @@
+/**
+ * @author Gurek Singh 2015033
+ * @author Abhishek Chauhan 2015005	
+ */
+
+public class Media implements Comparable
+{
+	
+	public int compareTo(Object arg0) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+}

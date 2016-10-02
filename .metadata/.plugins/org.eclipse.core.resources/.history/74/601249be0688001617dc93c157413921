@@ -1,0 +1,14 @@
+/**
+ * @author Gurek Singh 2015033
+ * @author Abhishek Chauhan 2015005	
+ */
+
+public class Movie extends Media
+{
+
+	Movie()
+	{
+		super(String title, String artist, Integer year, String genre, String size, Integer rating, String duration)
+
+	}
+}

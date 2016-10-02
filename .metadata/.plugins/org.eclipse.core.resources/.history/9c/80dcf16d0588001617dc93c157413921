@@ -1,0 +1,36 @@
+/**
+ * @author Gurek Singh 2015033
+ * @author Abhishek Chauhan 2015005	
+ */
+
+public class Media implements Comparable
+{
+	private String title;
+	private String artist;
+	private String size; 
+	private String duration; 
+	private String genre;
+	
+	private Integer rating;
+	private Integer year;
+	
+	public String getTitle()
+	{
+		return title;
+	}
+	
+	public String getTitle()
+	{
+		return title;
+	}
+	
+	public String getTitle()
+	{
+		return title;
+	}
+	
+	public int compareTo(Object arg)
+	{
+		return 0;
+	}
+}

@@ -1,0 +1,34 @@
+/**
+ * @author Gurek Singh 2015033
+ * @author Abhishek Chauhan 2015005	
+ */
+
+public class Song extends Media
+{
+	private String movie;
+	
+	Song(String title, String movie, String artist, Integer year, String genre, String size, Integer rating, String duration)
+	{
+		super(title,artist,year,genre,size,rating,duration);
+		this.movie= movie;
+	}
+	
+	public String getMovie()
+	{
+		return movie;
+	}
+	
+	public String toString()
+	{
+		return	"Movie name: " + getTitle() + 
+				"/nArtist: " + getArtist() +
+				"/nYear of Release: " + getYear() +
+				"/nGenre: " + getGenre() +
+				"/nSize: " + getSize() + 
+				"/nRating: " + getRating() +
+				"/nDuration (hrs): " + getDuration() +
+				"/nDirector: " + getDirector() +
+				"/nProducer: " + getProducer() +
+				"/nCertification: " + getCertification();
+	}
+}

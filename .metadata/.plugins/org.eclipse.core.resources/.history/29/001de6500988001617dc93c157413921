@@ -1,0 +1,14 @@
+/**
+ * @author Gurek Singh 2015033
+ * @author Abhishek Chauhan 2015005	
+ */
+
+public class MediaSystem 
+{
+	ArrayList<Movie> listMovies = new ArrayList<Movie>(); 
+	public static void main(String[] args) 
+	{
+
+	}
+
+}
