@@ -1,4 +1,3 @@
-Movie,Artist,Year of Release,Genre,Size,Rating,Duration,Director,Producer,Certification
 Movie0,Artist869,2000,Genre787,2.42,3,4:13,Director0,Producer0,D
 Movie1,Artist460,2001,Genre547,2.33,2,2:87,Director1,Producer1,C
 Movie2,Artist371,2003,Genre31,1.83,5,3:97,Director2,Producer2,D

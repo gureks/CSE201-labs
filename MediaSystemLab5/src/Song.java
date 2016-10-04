@@ -7,7 +7,7 @@ public class Song extends Media
 {
 	private String movie;
 	
-	Song(String title, String movie, String artist, Integer year, String genre, String size, Integer rating, String duration)
+	Song(String title, String movie, String artist, Integer year, String genre, Float size, Integer rating, String duration)
 	{
 		super(title,artist,year,genre,size,rating,duration);
 		this.movie= movie;
@@ -21,12 +21,13 @@ public class Song extends Media
 	public String toString()
 	{
 		return	"Song Title: " + getTitle() + 
-				"/nMovie: " + getMovie() + 
-				"/nArtist: " + getArtist() +
-				"/nYear of Release: " + getYear() +
-				"/nGenre: " + getGenre() +
-				"/nSize: " + getSize() + 
-				"/nRating: " + getRating() +
-				"/nDuration (hrs): " + getDuration();
+				"\nMovie: " + getMovie() + 
+				"\nArtist: " + getArtist() +
+				"\nYear of Release: " + getYear() +
+				"\nGenre: " + getGenre() +
+				"\nSize: " + getSize() + 
+				"\nRating: " + getRating() +
+				"\nDuration (hrs): " + getDuration() + "\n\n";
 	}
+
 }

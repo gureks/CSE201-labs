@@ -11,11 +11,11 @@ public class Media implements Comparable<Media>, Serializable
 	private String artist;
 	private Integer year;
 	private String genre;
-	private String size; 
+	private Float size; 
 	private Integer rating;
 	private String duration; 
 	
-	Media(String title, String artist, Integer year, String genre, String size, Integer rating, String duration)
+	Media(String title, String artist, Integer year, String genre, Float size, Integer rating, String duration)
 	{
 		this.title = title;
 		this.artist = artist;
@@ -36,7 +36,7 @@ public class Media implements Comparable<Media>, Serializable
 		return artist;
 	}
 	
-	public String getSize()
+	public Float getSize()
 	{
 		return size;
 	}
@@ -61,8 +61,16 @@ public class Media implements Comparable<Media>, Serializable
 		return year;
 	}
 	
-	public int compareTo(Media arg)
+	public void setRating(int rating)
 	{
-		return 0;
+		this.rating = rating;
 	}
+	
+	@Override
+	public int compareTo(Media temp)
+	{
+		int compareRating = temp.getRating();
+		return this. rating - compareRating;
+	}
+	
 }
