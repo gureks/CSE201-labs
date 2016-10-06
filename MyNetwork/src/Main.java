@@ -11,11 +11,8 @@ public class Main
 	{
 		MyNetwork MySocialNetwork = new MyNetwork();
 		
-		while(1==1)
-		{
-			MySocialNetwork.readFile();
-			System.out.println("Network is ready.");
-			MySocialNetwork.mainMenu();
-		}
+		MySocialNetwork.readFile();
+		System.out.println("Network is ready.");
+		MySocialNetwork.mainMenu();
 	}
 }

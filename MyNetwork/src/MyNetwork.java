@@ -218,17 +218,34 @@ public class MyNetwork
 	public void logout()
 	{
 		BufferedWriter	bw = null;
+		try
+		{
+			PrintWriter pw1 = new PrintWriter(new BufferedWriter(new FileWriter("input.txt")));
+			pw1.close();
+		}
+		catch (FileNotFoundException ex)
+		{
+			System.out.println("File not found");
+			ex.printStackTrace();
+		}
+		
+		catch (IOException ex)
+		{
+			ex.printStackTrace();
+		}
 		try 
 		{
-			bw= new BufferedWriter(new StringWriter());
+			PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("input.txt")));
 			
-			Iterator i = Network.iterator();
+			Iterator<Person> i = Network.iterator();
 			
 			while(i.hasNext())
 			{
 				Person temp = (Person)i.next();
-				bw.write(temp.toString());
+				pw.println(temp.toString());
 			}
+			
+			pw.close();
 		}
 		
 		catch (FileNotFoundException ex)
@@ -261,6 +278,7 @@ public class MyNetwork
 	{
 		Scanner in = new Scanner(System.in);
 		String searchUsername;
+		System.out.println("Enter username to be searched :");
 		searchUsername = in.next();
 		
 		int flag = 0;
@@ -285,7 +303,25 @@ public class MyNetwork
 			
 			if (flag == 1)
 			{
-				LoggedInUser.checkIfFriend(searchUsername);
+				if(LoggedInUser.checkIfFriend(searchUsername) == 1)
+				{
+					for(Person a:Network)
+					{
+						if(searchUsername.equals(a.getUsername()))
+						{
+							System.out.println("You and " +searchUsername+ " are friends.");
+							System.out.println("Display Name :" + a.getUsername());
+							System.out.println("Status :" + a.getStatus());
+							System.out.println("Friends :" + a.getlistOffriends());
+
+						}
+					}
+				}
+				else
+				{
+					System.out.println(searchUsername + " is not a friend.");
+				}
+				
 			}
 			else if (flag == 0)
 			{

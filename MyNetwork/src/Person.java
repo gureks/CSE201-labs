@@ -103,6 +103,7 @@ public class Person
 		Scanner in = new Scanner(System.in);
 		String status = new String();
 		
+		System.out.println("Enter new status :");
 		status = in.nextLine();
 		
 		setStatus(status);
@@ -112,8 +113,6 @@ public class Person
 	public void pendingRequests()
 	{
 		Scanner in = new Scanner(System.in);
-		Iterator i = listOfrequests.iterator();
-		int j = 0;
 		char choice;
 		
 		if(requests == 0)
@@ -123,11 +122,10 @@ public class Person
 		}
 		else
 		{
-			while(i.hasNext())
-			{  
-				j++;
-				String temp = (String)i.next();
-				System.out.println(j + ".	" + temp);
+			int j = 0;
+			for(String a:listOfrequests)
+			{
+				System.out.println(++j + ".	" + a);	
 			}
 			System.out.println("b.	Back");
 			choice = (char)in.next().charAt(0);
@@ -139,43 +137,40 @@ public class Person
 			else
 			{	
 				int c = Character.getNumericValue(choice);
-				i = listOfrequests.iterator();
-				while(i.hasNext())
-				{
-					j++;
-					String temp = (String)i.next();
-					if(j==c)
-					{
-						System.out.println(temp);
-						System.out.println("1.	Accept");
-						System.out.println("2.	Reject");
-						int c2 = in.nextInt();
+				String temp = new String();
+				
+				if(c < listOfrequests.size())
+				{	
+					temp = listOfrequests.get(c-1);
+				}
+				System.out.println(temp);
+				System.out.println("1.	Accept");
+				System.out.println("2.	Reject");
+				int c2 = in.nextInt();
 						
-						switch(c2)
-						{
-							case 1	:	requests--;
-										listOfrequests.remove(c-1);
-										friends++;
-										listOffriends.add(temp);
-										break;
+				switch(c2)
+				{
+					case 1	:	requests--;
+								listOfrequests.remove(c-1);
+								friends++;
+								listOffriends.add(temp);
+								break;
 										
-							case 2	:	requests--;
-										listOfrequests.remove(c-1);
-										System.out.println("Friend request by " +temp+ " deleted.");
-										pendingRequests();
-										break;
+					case 2	:	requests--;
+								listOfrequests.remove(c-1);
+								System.out.println("Friend request by " +temp+ " deleted.");
+								pendingRequests();
+								break;
 										
-							default	:	System.out.println("Wrong input. Enter again.");
-										pendingRequests();
-										break;
-						}
-					}
+					default	:	System.out.println("Wrong input. Enter again.");
+								pendingRequests();
+								break;
 				}
 			}
 		}
 	}
 	
-	public void checkIfFriend(String tempUsername)
+	public int checkIfFriend(String tempUsername)
 	{
 		int flag=0;
 		for(String a:listOffriends)
@@ -185,14 +180,8 @@ public class Person
 				flag=1;
 			}
 		}
-		if(flag==1)
-		{
-			System.out.println("You and " +tempUsername+ " are friends.");
-		}
-		else if(flag==0)
-		{
-			System.out.println(tempUsername + " is not a friend.");
-		}
+		
+		return flag;
 	}
 	
 	public String toString()
