@@ -1,0 +1,28 @@
+/**
+ * @author Gurek Singh 2015033
+ */
+import java.awt.*;
+import javax.swing.*;
+
+public class TicTacToe
+{
+
+	public static void main(String[] args) 
+	{
+		JFrame frame = new JFrame();
+		JButton button = new JButton("click me");
+
+		button.setBorderPainted(false);
+		button.setFocusPainted(false);
+		button.setContentAreaFilled(false);
+		
+	    button.setBackground(new Color(52, 152, 219));
+	    button.setForeground(Color.GRAY);
+	    
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().add(button);
+		frame.setSize(300,300);
+		frame.setVisible(true);
+	}
+
+}

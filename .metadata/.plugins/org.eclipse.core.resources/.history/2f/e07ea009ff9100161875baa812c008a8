@@ -1,0 +1,22 @@
+/**
+ * @author Gurek Singh 2015033
+ */
+import java.awt.*;
+import java.awt.event.*;
+
+import javax.swing.*;
+
+public class TicTacToe
+{
+	static JFrame frame = new JFrame("Tic Tac Toe");
+	
+	public static void init()
+	{
+		
+	}
+	public static void main(String[] args) 
+	{
+	
+	}
+
+}

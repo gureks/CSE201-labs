@@ -1,0 +1,38 @@
+/**
+ * @author Gurek Singh 2015033
+ */
+import java.awt.*;
+import javax.swing.*;
+
+public class TicTacToe
+{
+
+	public static void main(String[] args) 
+	{
+		JFrame frame = new JFrame("Tic Tac Toe");
+		
+		
+		JPanel panel = new JPanel();
+		JLabel name = new JLabel("Tic-Tac-Toe");
+		JLabel author = new JLabel("By: Gurek Singh(2015033)");
+		
+		JButton start = new JButton("Start Game");
+		JButton exit = new JButton("Exit");
+		
+	    start.setBackground(new Color(52, 152, 219));
+	    start.setForeground(Color.WHITE);
+	    exit.setBackground(new Color(52, 152, 219));
+	    exit.setForeground(Color.WHITE);
+	    
+	    
+		panel.add(name);
+		panel.add(author);
+		panel.add(start);
+		panel.add(exit);
+		frame.getContentPane().add(panel);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(700,700);
+		frame.setVisible(true);
+	}
+
+}
