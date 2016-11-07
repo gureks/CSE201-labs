@@ -1,0 +1,98 @@
+import java.io.File;
+import java.util.ArrayList;
+
+public class Threads_demo {
+    static Double min = new Double(Double.MAX_VALUE);
+    static Double max = new Double(Double.MIN_VALUE);
+    static Double avg = new Double(0);
+    static Thread Consumer1;
+    static Thread Consumer2;
+    static Thread Consumer3;
+    static ArrayList<Double> taskQueue = new ArrayList<Double>();
+    static ArrayList<Double> result = new ArrayList<Double>();
+    static public void initialize ()
+    {
+	      Double min = new Double(Double.MAX_VALUE);
+	      Double max = new Double(Double.MIN_VALUE);
+	      Double avg = new Double(0);
+	      Consumer1 = new Thread(new Consumer(taskQueue,1), "Consumer");
+	      Consumer2 = new Thread(new Consumer(taskQueue,2), "Consumer");
+	      Consumer3 = new Thread(new Consumer(taskQueue,3), "Consumer");
+	      Consumer1.start();
+	      Consumer2.start();
+	      Consumer3.start();
+    }
+    
+	@SuppressWarnings("deprecation")
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	      int MAX_CAPACITY = 5;
+	      String workingDirectory = System.getProperty("user.dir");
+	      File temp_file = new File (workingDirectory + System.getProperty("file.separator") + "temperature");
+	      File humidity_file = new File (workingDirectory + System.getProperty("file.separator") + "humidity");
+	      File rainfall_file = new File (workingDirectory + System.getProperty("file.separator") + "rainfall");
+	      Thread Producer1 = new Thread(new producer(taskQueue, MAX_CAPACITY,temp_file,result), "Producer");
+	      Producer1.start();
+	      initialize();
+	      while (Producer1.isAlive());
+	      Consumer1.stop();
+	      Consumer2.stop();
+	      Consumer3.stop();
+	      Thread Consumer4 = new Thread(new Consumer(taskQueue,4), "Consumer"); 
+	      //Consumer4.start();
+	      taskQueue = new ArrayList<Double>();
+	      Thread Producer2 = new Thread(new producer(taskQueue, MAX_CAPACITY,humidity_file,result), "Producer");
+	      Producer2.start();
+	      initialize();
+	      while (Producer2.isAlive());
+	      Consumer1.stop();
+	      Consumer2.stop();
+	      Consumer3.stop();
+	      Consumer4 = new Thread(new Consumer(taskQueue,4), "Consumer"); 
+	      //Consumer4.start();
+	      Thread Producer3 = new Thread(new producer(taskQueue, MAX_CAPACITY,rainfall_file,result), "Producer");
+	      Producer3.start();
+	      initialize();
+	      while (Producer3.isAlive());
+	      Consumer1.stop();
+	      Consumer2.stop();
+	      Consumer3.stop();
+	      Consumer4 = new Thread(new Consumer(taskQueue,4), "Consumer"); 
+	      //Consumer4.start();
+	      /*
+	       * RESULT ARRAY STORES MIN,MAX,AVG OF EACH DATASET
+	       * FOR EG INDEX 0 STORES MIN OF DATASET 1 OF TEMPERATURE
+	       * INDEX 1 STORES MAX OF DATASET 1 OF TEMPERATURE
+	       * INDEX 2 STORES AVG OF DATASET 1 OF TEMPERATURE
+	       * SIMILARLY FOR ALL DATASETS AND FILES
+	       * */
+	      System.out.println("*****TEMPERATURE RESULT***** \n");
+	      for (int i=1; i<=5 ;i++)
+	      {
+	    	  System.out.println("dataset "+ i);
+	    	  System.out.println("MIN VALUE: " + result.get(3*(i-1)));
+	    	  System.out.println("MAX VALUE: " + result.get(3*(i-1)+1));
+	    	  System.out.println("AVG VALUE: " + result.get(3*(i-1)+2));
+	      }
+	      System.out.println("*****RAINFALL RESULT***** \n");
+	      for (int i=1; i<=5 ;i++)
+	      {
+	    	  System.out.println("dataset "+ i);
+	    	  System.out.println("MIN VALUE: " + result.get(30 + 3*(i-1)));
+	    	  System.out.println("MAX VALUE: " + result.get(30 + 3*(i-1)+1));
+	    	  System.out.println("AVG VALUE: " + result.get(30 + 3*(i-1)+2));
+	      }
+	      System.out.println("*****HUMIDITY RESULT***** \n");
+	      for (int i=1; i<=5 ;i++)
+	      {
+	    	  System.out.println("dataset "+ i);
+	    	  System.out.println("MIN VALUE: " + result.get(15+3*(i-1)));
+	    	  System.out.println("MAX VALUE: " + result.get(15+3*(i-1)+1));
+	    	  System.out.println("AVG VALUE: " + result.get(15+3*(i-1)+2));
+	      }
+
+	      
+	}
+
+}
