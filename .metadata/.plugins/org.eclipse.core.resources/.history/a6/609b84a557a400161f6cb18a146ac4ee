@@ -1,0 +1,82 @@
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Scanner;
+
+/**
+ * @author Gurek Singh 2015033
+ * @author Saurabh Kapur 2015087
+ *
+ */
+
+public class Main
+{
+	
+	public static void readTemp()
+	{
+		ArrayList<ArrayList<Float>> temperature = new ArrayList<ArrayList<Float>>();
+		ArrayList<Float> temp = new ArrayList<Float>();
+		BufferedReader br = null;
+
+		try 
+		{
+			System.out.println("reading file");
+			
+			br = new BufferedReader(new FileReader("temperature"));
+			String next = null;
+
+			while ((next = br.readLine()) != null) 
+			{
+				if(next == "")
+				{
+					temperature.add(temp);
+					temp.clear();
+				}
+				else
+				{
+					temp.add(Float.valueOf(next));
+				}
+			}
+			/*for(int i=0;i<5;i++)
+			{
+				for(int j=0;j<100;j++)
+				{	
+					next = br.readLine();
+					temperature[i][j]=Float.valueOf(next);
+				}
+				String temp = br.readLine();
+			}*/
+			Iterator<ArrayList> = temperature.iterator();
+			
+		}
+		
+		catch (FileNotFoundException ex)
+		{
+			System.out.println("File not found");
+			ex.printStackTrace();
+		}
+		
+		catch (IOException ex)
+		{
+			ex.printStackTrace();
+		}
+		
+		/*for(int i=0;i<5;i++)
+		{	
+			for(int j=0;j<100;j++)
+				System.out.println(temperature[i][j]);
+			System.out.println("\n\n\n\n");
+		}*/
+	}
+	public static void main(String[] args)
+	{
+		readTemp();
+	}
+
+}

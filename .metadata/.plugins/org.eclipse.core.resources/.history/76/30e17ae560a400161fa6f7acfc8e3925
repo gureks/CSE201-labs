@@ -1,0 +1,20 @@
+
+/**
+ * 
+ * @author Gurek Singh 2015033
+ * @author Saurabh Kapur 2015087
+ *
+ */
+
+public class Main
+{
+	public static void main(String[] args)
+	{
+		temperature a = new temperature();
+		System.out.println(a.getMin());
+		System.out.println(a.getMax());
+		System.out.println(a.getAvg());
+		System.out.println(a.toString());
+	}
+
+}

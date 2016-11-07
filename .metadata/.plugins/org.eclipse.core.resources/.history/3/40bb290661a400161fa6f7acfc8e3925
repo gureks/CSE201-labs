@@ -1,0 +1,29 @@
+
+/**
+ * 
+ * @author Gurek Singh 2015033
+ * @author Saurabh Kapur 2015087
+ *
+ */
+
+public class Main
+{
+	public static void main(String[] args)
+	{
+		temperature a = new temperature();
+		float[] min = new float[5];
+		float[] max = new float[5];
+		float[] avg = new float[5];
+		min = a.getMin();
+		max = a.getMax();
+		avg = a.getAvg();
+		for(int i = 0; i<5; i++)
+		{
+			System.out.println(min[i]);
+			System.out.println(max[i]);
+			System.out.println(avg[i]);
+			System.out.println("/n/n/n/n/n);
+		}
+	}
+
+}

@@ -1,0 +1,17 @@
+/**
+ * @author Gurek Singh 2015033
+ */
+import java.awt.*;
+import java.awt.event.*;
+
+import javax.swing.*;
+
+public class TicTacToe
+{
+	static JFrame frame = new JFrame("Tic Tac Toe");
+	static String move = "X";
+	static JTextField textbox = new JTextField("Random Text");
+    static JPanel gridPanel = new JPanel();
+    static JPanel grid = new JPanel();
+    
+}

@@ -1,0 +1,13 @@
+/**
+ * @author Gurek Singh 2015033
+ */
+import java.awt.*;
+import java.awt.event.*;
+
+import javax.swing.*;
+
+public class TicTacToe
+{
+	JButton[9] grid = new JButton();
+    
+}

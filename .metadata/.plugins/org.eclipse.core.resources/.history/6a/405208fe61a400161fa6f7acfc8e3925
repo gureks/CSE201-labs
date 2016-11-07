@@ -1,0 +1,59 @@
+
+/**
+ * 
+ * @author Gurek Singh 2015033
+ * @author Saurabh Kapur 2015087
+ *
+ */
+
+public class Main
+{
+	public static void main(String[] args)
+	{
+		rainfall a = new rainfall();
+		float[] min = new float[5];
+		float[] max = new float[5];
+		float[] avg = new float[5];
+		min = a.getMin();
+		max = a.getMax();
+		avg = a.getAvg();
+		for(int i = 0; i<5; i++)
+		{
+			System.out.println(min[i]);
+			System.out.println(max[i]);
+			System.out.println(avg[i]);
+			System.out.println("\n\n");
+		}
+		
+		humidity a = new humidity();
+		float[] min = new float[5];
+		float[] max = new float[5];
+		float[] avg = new float[5];
+		min = a.getMin();
+		max = a.getMax();
+		avg = a.getAvg();
+		for(int i = 0; i<5; i++)
+		{
+			System.out.println(min[i]);
+			System.out.println(max[i]);
+			System.out.println(avg[i]);
+			System.out.println("\n\n");
+		}
+		
+		rainfall rain = new rainfall();
+		float[] minR = new float[5];
+		float[] maxR = new float[5];
+		float[] avgR = new float[5];
+		minR = rain.getMin();
+		maxR = rain.getMax();
+		avgR = rain.getAvg();
+		for(int i = 0; i<5; i++)
+		{
+			System.out.println(minR[i]);
+			System.out.println(maxR[i]);
+			System.out.println(avgR[i]);
+			System.out.println("\n\n");
+		}
+	}
+
+}

@@ -1,0 +1,12 @@
+/**
+ * @author Gurek Singh 2015033
+ */
+
+import java.util.ArrayList;
+import javax.swing.JButton;
+
+public class TicTacToe
+{
+	ArrayList<JButton> grid = new ArrayList<JButton>();
+    
+}

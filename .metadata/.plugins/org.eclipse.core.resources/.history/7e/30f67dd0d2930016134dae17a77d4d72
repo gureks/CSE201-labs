@@ -1,0 +1,30 @@
+/**
+ * @author Gurek Singh 2015033
+ */
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import javax.swing.JButton;
+
+public class TicTacToe
+{
+	ArrayList<JButton> grid;
+	
+	public TicTacToe()
+	{
+		grid= new ArrayList<JButton>();
+		
+		for(int i=0; i<9; i++)
+		{
+			JButton temp = new JButton("");
+			grid.add(temp);
+			temp.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent e)
+				{
+					
+				}
+			});
+		}
+	}
+}

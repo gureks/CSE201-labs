@@ -1,0 +1,71 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+/**
+ * @author Gurek Singh 2015033
+ * @author Saurabh Kapur 2015087
+ *
+ */
+
+public class Main
+{
+	float[][] temperature = new float[5][100];
+
+	public void readTemp()
+	{
+		BufferedReader br = null;
+		
+		try 
+		{
+			br = new BufferedReader(new FileReader("temperature"));
+			String next = null;
+			int i=0,j=0;
+			while ((next = br.readLine()) != null) 
+			{
+		        if(next == " ")
+		        	i++;
+		        else
+		        	temperature[i][j] = Float.parseFloat(next);
+			}
+		}
+		
+		catch (FileNotFoundException ex)
+		{
+			System.out.println("File not found");
+			ex.printStackTrace();
+		}
+		
+		catch (IOException ex)
+		{
+			ex.printStackTrace();
+		}
+		
+		finally
+		{
+			try 
+			{
+				if (br != null)
+				{	
+					br.close();
+				}
+			}
+				
+			catch (IOException ex) 
+			{
+				ex.printStackTrace();
+			}
+		}
+		
+		for(int i=0;i<5;i++)
+			for(int j=0;j<100;j++)
+				System.out.println(temperature[i][j]);
+	}
+	
+	public void main(String[] args)
+	{
+		readTemp();
+	}
+
+}
