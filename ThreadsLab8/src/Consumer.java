@@ -48,8 +48,12 @@ public class Consumer implements Runnable {
 				}
 			   }
 			   else {
-				   //INSERT CODE FOR PREDICTION
-				   break;
+				   try {
+						predict();
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 			   }
 		   }
 	      
@@ -116,6 +120,25 @@ public class Consumer implements Runnable {
 		        	 
 		         }
 		         System.out.println("Consumed3: " + i);
+		         taskQueue.notifyAll();
+		         taskQueue.wait();
+		      }		
+	}
+	
+	private void predict() throws InterruptedException {
+		// TODO Auto-generated method stub
+		   	  synchronized (taskQueue)
+		      {
+		         while (taskQueue.isEmpty())
+		         {
+		            System.out.println("Queue is empty " + Thread.currentThread().getName() + " is waiting , size: " + taskQueue.size());
+		            //taskQueue.notifyAll();
+		            taskQueue.wait();
+		         }
+		         //Thread.sleep(1000);
+		         Double i = (Double) taskQueue.remove(0);
+		         Threads_demo.predict += (i-Threads_demo.avg)/100.0;
+		         System.out.println("Consumed1: " + i);
 		         taskQueue.notifyAll();
 		         taskQueue.wait();
 		      }		

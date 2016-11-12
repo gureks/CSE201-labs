@@ -10,6 +10,7 @@ public class Threads_demo {
     static Double min = new Double(Double.MAX_VALUE);
     static Double max = new Double(Double.MIN_VALUE);
     static Double avg = new Double(0);
+    static Double predict = new Double(0);
     static Thread Consumer1;
     static Thread Consumer2;
     static Thread Consumer3;
@@ -76,25 +77,28 @@ public class Threads_demo {
 	      for (int i=1; i<=5 ;i++)
 	      {
 	    	  System.out.println("dataset "+ i);
-	    	  System.out.println("MIN VALUE: " + result.get(3*(i-1)));
-	    	  System.out.println("MAX VALUE: " + result.get(3*(i-1)+1));
-	    	  System.out.println("AVG VALUE: " + result.get(3*(i-1)+2));
+	    	  System.out.println("MIN VALUE: " + result.get(4*(i-1)));
+	    	  System.out.println("MAX VALUE: " + result.get(4*(i-1)+1));
+	    	  System.out.println("AVG VALUE: " + result.get(4*(i-1)+2));
+	    	  System.out.println("PREDICT VALUE: " + result.get(4*(i-1)+3));
 	      }
 	      System.out.println("*****RAINFALL RESULT***** \n");
 	      for (int i=1; i<=5 ;i++)
 	      {
 	    	  System.out.println("dataset "+ i);
-	    	  System.out.println("MIN VALUE: " + result.get(30 + 3*(i-1)));
-	    	  System.out.println("MAX VALUE: " + result.get(30 + 3*(i-1)+1));
-	    	  System.out.println("AVG VALUE: " + result.get(30 + 3*(i-1)+2));
+	    	  System.out.println("MIN VALUE: " + result.get(40 + 3*(i-1)));
+	    	  System.out.println("MAX VALUE: " + result.get(40 + 3*(i-1)+1));
+	    	  System.out.println("AVG VALUE: " + result.get(40 + 3*(i-1)+2));
+	    	  System.out.println("PREDICT VALUE: " + result.get(40 + 4*(i-1)+3));
 	      }
 	      System.out.println("*****HUMIDITY RESULT***** \n");
 	      for (int i=1; i<=5 ;i++)
 	      {
 	    	  System.out.println("dataset "+ i);
-	    	  System.out.println("MIN VALUE: " + result.get(15+3*(i-1)));
-	    	  System.out.println("MAX VALUE: " + result.get(15+3*(i-1)+1));
-	    	  System.out.println("AVG VALUE: " + result.get(15+3*(i-1)+2));
+	    	  System.out.println("MIN VALUE: " + result.get(20+3*(i-1)));
+	    	  System.out.println("MAX VALUE: " + result.get(20+3*(i-1)+1));
+	    	  System.out.println("AVG VALUE: " + result.get(20+3*(i-1)+2));
+	    	  System.out.println("PREDICT VALUE: " + result.get(20 + 4*(i-1)+3));
 	      }
 
 	      

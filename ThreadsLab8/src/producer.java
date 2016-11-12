@@ -59,12 +59,16 @@ public class producer implements Runnable {
 		      result.add(Threads_demo.min);
 		      result.add(Threads_demo.max);
 		      result.add(Threads_demo.avg);
+		      Threads_demo.predict = Math.sqrt(Threads_demo.predict) + Threads_demo.max;
+		      result.add(Threads_demo.predict);
 		      System.out.println("result of dataset " + j + "-" + Threads_demo.min);
 		      System.out.println("result of dataset " + j + "-" + Threads_demo.max);
 		      System.out.println("result of dataset " + j + "-" + Threads_demo.avg);
+		      System.out.println("result of dataset " + j + "-" + Threads_demo.predict);
 		      Threads_demo.min = Double.MAX_VALUE;
 		      Threads_demo.max = Double.MIN_VALUE;
 		      Threads_demo.avg = 0.0;
+		      Threads_demo.predict = 0.0;
 		  }
 		      
 	   }
